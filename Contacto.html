@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyecto Climático</title>
+  <link rel="stylesheet" href="Css2.css">
+<style>
+   
+  /* Contenedor principal: dos columnas flexibles */
+  .contact-section {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 120px;
+    font-family: Arial, sans-serif;
+    width: 1800px;
+    height: 600px;
+  }
+  /* Columna del formulario (izquierda) */
+  .contact-form {
+    flex: 1;
+    min-width: 280px;
+    background-color: rgba(255, 0, 0, 0.507); /* Celeste claro */
+    color: #ffffff; /* Azul oscuro para textos */
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  .contact-form h2 {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 15px;
+  }
+  .contact-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 8px 5px;
+    margin-bottom: 15px;
+    border: none;
+    border-bottom: 2px solid #fffb00; /* Línea inferior verde */
+    background: transparent;
+    font-size: 1em;
+    box-sizing: border-box;
+  }
+  .contact-form button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(to right, #000000, #ffbb00); /* Degradado azul-verde */
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+  }
+  .contact-form button:hover {
+    opacity: 0.9;
+  }
+  /* Columna de información (derecha) */
+  .contact-info {
+    flex: 1;
+    min-width: 200px;
+    padding: 120px;
+    box-sizing: border-box;
+    font-size: 1.3rem;
+  }
+  .contact-info h3 {
+    margin-top: 0;
+    color: #ffffff;
+  }
+  .contact-info p {
+    margin: 5px 0;
+    color: #ffffff;
+  }
+  .contact-info a {
+    color: #ff0000;
+    text-decoration: none;
+  }
+  .contact-info a:hover {
+    text-decoration: underline;
+  }
+  .contact-info img {
+    margin-top: 10px;
+    max-width: 200px; /* Ajustar tamaño del logo */
+    height: auto;
+    display: block;
+  }
+  /* Estilos responsivos: apilar columnas en pantallas pequeñas */
+  @media (max-width: 600px) {
+    .contact-section {
+      flex-direction: column;
+    }
+    .contact-form, .contact-info {
+      margin-bottom: 20px;
+    }
+  }
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="Assets/img/Sociedad creativa logo.png" alt="Logo">
+      </div>
+     <h1 class="Titulo">Sociedad creativa Argentina</h1>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="#">Nosotros</a></li>
+        <li><a href="#">Noticias</a></li>
+        <li><a href="Contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+<div class="whatsapp-container">
+  <a href="https://wa.me/5491126386864" target="_blank">
+<img src="Assets/icons/whatsapp_comic.png" class="whatsapp" alt="WhatsApp" width="80px" height="80px"></a>
+</div>
+
+
+<section class="contact-section">
+  <!-- Columna izquierda: formulario -->
+  <div class="contact-form">
+    <h2>Contáctenos</h2>
+    <form action="#" method="post">
+      <label for="fullName">Nombre completo*</label>
+      <input type="text" id="fullName" name="fullName" required>
+
+      <label for="email">Email*</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Mensaje*</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+
+      <button type="submit">ENVIAR</button>
+    </form>
+  </div>
+
+  <!-- Columna derecha: información de contacto -->
+  <div class="contact-info">
+    <h3>Contacto:</h3>
+    <p><strong>Juan andres </strong> – Coordinador General</p>
+    <p>Alianza para la Acción Climática Argentina</p>
+    <p>Email: <a href="Sociedadcreativa@gmail.com">Sociedadcreativa@gmail.com</a></p>
+    <!-- Logo de la organización (marcador de imagen) -->
+    <img src="Assets/img/Sociedad creativa logo.png" alt="Logotipo Alianza para la Acción Climática Argentina">
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-left">
+    <img src="Assets/img/Sociedad creativa logo.png" alt="Logo" class="footer-logo">
+    <span>© Todos los derechos reservados 2025.</span>
+  </div>
+  <div class="footer-right">
+    <span>Diseño y desarrollo: <a href="https://github.com/Mgabrizuela017" target="_blank">Marcos G. Brizuela</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
