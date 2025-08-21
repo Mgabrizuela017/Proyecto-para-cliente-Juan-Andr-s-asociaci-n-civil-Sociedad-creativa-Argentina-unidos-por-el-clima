@@ -4,17 +4,17 @@
       box-sizing: border-box;
     }
     html{
-    background-color: black;
+    background-color: rgb(255, 255, 255);
     }
     body {
       font-family: Arial, sans-serif;
       overflow-x: hidden;
-      background-color: black;
+      background-color: rgb(255, 255, 255);
     }
     /* NAV */
     header {
       width: 100%;
-      background: #000000;
+      background: linear-gradient(180deg, #267E91, #4EAA4D);
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       position: sticky;
       top: 0;
@@ -27,7 +27,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 1rem;
-      background-color: black;  
+      background-color: linear-gradient(180deg, #267E91, #4EAA4D);
     }
     .navbar .logo img {
       height: 80px;
@@ -43,12 +43,12 @@
       font-weight: 600;
     }
     .navbar ul li a:hover {
-      color: #ff0000;
+      color: #000000;
     }
 
     .Titulo{ 
      color: white;    
-     text-shadow: red 2px 2px 3px;
+     text-shadow: rgb(0, 0, 0) 2px 2px 3px;
     margin-left: -400px;
 }
 
@@ -245,7 +245,7 @@
     .texto {
       flex: 1;
       padding: 20px;
-     color: white;
+     color: rgb(0, 0, 0);
         font-size: 1.3rem;
     }
 
@@ -278,7 +278,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(180deg, #000000, #ff000096); /* celeste a verde */
+  background: linear-gradient(180deg, #267E91, #4EAA4D); /* celeste a verde */
   color: white;
   padding: 15px 40px;
   font-family: Arial, sans-serif;
