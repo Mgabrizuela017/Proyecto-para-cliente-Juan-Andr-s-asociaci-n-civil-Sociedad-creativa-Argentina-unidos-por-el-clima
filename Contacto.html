@@ -5,102 +5,193 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Proyecto Climático</title>
   <link rel="stylesheet" href="Css2.css">
-<style>
-   
-  /* Contenedor principal: dos columnas flexibles */
-  .contact-section {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 120px;
-    font-family: Arial, sans-serif;
-    width: 1800px;
-    height: 600px;
-  }
-  /* Columna del formulario (izquierda) */
-  .contact-form {
-    flex: 1;
-    min-width: 280px;
-    background-color: rgba(44, 133, 192, 0.534); /* Celeste claro */
-    color: #000000; /* Azul oscuro para textos */
-    padding: 20px;
-    box-sizing: border-box;
-  }
-  .contact-form h2 {
-    text-align: center;
-    color: #ffffff;
-    text-shadow: black 2px 2px 3px;
-    margin-bottom: 15px;
-    font-size: 2.5rem;
-  }
-  .contact-form label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  .contact-form input,
-  .contact-form textarea {
-    width: 100%;
-    padding: 8px 5px;
-    margin-bottom: 15px;
-    border: none;
-    border-bottom: 2px solid #2dca35; /* Línea inferior verde */
-    background: transparent;
-    font-size: 1em;
-    box-sizing: border-box;
-  }
-  .contact-form button {
-    display: inline-block;
-    padding: 10px 20px;
-    background: linear-gradient(to right,  #2a9d2f, #007BFF); /* Degradado azul-verde      background: linear-gradient(90deg, #2a9d2f, #007BFF); */
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1em;
-  }
-  .contact-form button:hover {
-    opacity: 0.9;
-  }
-  /* Columna de información (derecha) */
-  .contact-info {
-    flex: 1;
-    min-width: 200px;
-    padding: 120px;
-    box-sizing: border-box;
-    font-size: 1.3rem;
-  }
-  .contact-info h3 {
-    margin-top: 0;
-    color: #000000;
-  }
-  .contact-info p {
-    margin: 5px 0;
-    color: #000000;
-  }
-  .contact-info a {
-    color: #ff0000;
-    text-decoration: none;
-    background-color: #00000038;
-  }
-  .contact-info a:hover {
-    text-decoration: underline;
-  }
-  .contact-info img {
-    margin-top: 10px;
-    max-width: 200px; /* Ajustar tamaño del logo */
-    height: auto;
-    display: block;
-  }
-  /* Estilos responsivos: apilar columnas en pantallas pequeñas */
-  @media (max-width: 600px) {
-    .contact-section {
+  <style>
+    body {
+      margin: 0;
+      display: flex;
       flex-direction: column;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #000;
     }
-    .contact-form, .contact-info {
-      margin-bottom: 20px;
-    }
-  }
 
+    header {
+      background: #f8f9fa;
+    }
+
+    /* CONTACTO */
+    .contact-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      gap: 20px;
+      flex: 1; /* empuja el footer abajo */
+    }
+
+    .contact-form, .contact-info {
+      flex: 1;
+      min-width: 300px;
+      max-width: 600px;
+      padding: 20px;
+      box-sizing: border-box;
+      border-radius: 10px;
+    }
+
+    .contact-form {
+      background-color: rgba(44, 133, 192, 0.534);
+      color: #000;
+    }
+
+    .contact-form h2 {
+      text-align: center;
+      color: #fff;
+      text-shadow: 2px 2px 3px black;
+      margin-bottom: 15px;
+      font-size: 2rem;
+    }
+
+    .contact-form label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: none;
+      border-bottom: 2px solid #2dca35;
+      background: transparent;
+      font-size: 1em;
+      color: inherit;
+    }
+
+    .contact-form button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(to right, #2a9d2f, #007BFF);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+
+    .contact-form button:hover {
+      opacity: 0.9;
+    }
+
+    .contact-info {
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+    .contact-info h3 {
+      margin-top: 0;
+    }
+
+    .contact-info p {
+      margin: 8px 0;
+    }
+
+    .contact-info a {
+      color: #ff0000;
+      text-decoration: none;
+      background-color: #00000020;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-info img {
+      margin-top: 15px;
+      max-width: 150px;
+      height: auto;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: #222;
+      color: #fff;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      font-size: 0.9rem;
+    }
+
+    .footer a {
+      color: #00aced;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-logo {
+      width: 50px;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+
+    .footer-left, .footer-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .contact-section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+    }
+
+    /* 🌙 DARK MODE */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: #121212;
+        color: #eee;
+      }
+      header {
+        background: #1e1e1e;
+      }
+      .contact-form {
+        background: rgba(44, 133, 192, 0.3);
+        color: #fff;
+      }
+      .contact-info a {
+        color: #4da6ff;
+        background-color: #ffffff20;
+      }
+      .footer {
+        background: #111;
+        color: #ccc;
+      }
+      .footer a {
+        color: #4da6ff;
+      }
+    }
   </style>
 </head>
 <body>
@@ -109,7 +200,7 @@
       <div class="logo">
         <img src="Assets/img/logo whatsapp verde.jpg" alt="Logo">
       </div>
-     <h1 class="Titulo">Sociedad creativa Argentina</h1>
+      <h1 class="Titulo">Sociedad creativa Argentina</h1>
       <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="#">Nosotros</a></li>
@@ -119,53 +210,54 @@
     </nav>
   </header>
 
-<div class="whatsapp-container">
-  <a href="https://wa.me/1136283952" target="_blank">Tel: 1136283952 / 1133412188
-<img src="Assets/icons/whatsapp_comic.png" class="whatsapp" alt="WhatsApp" width="80px" height="80px"></a>
-</div>
-
-
-<section class="contact-section">
-  <!-- Columna izquierda: formulario -->
-  <div class="contact-form">
-    <h2>Contáctenos</h2>
-    <form action="#" method="post">
-      <label for="fullName">Nombre completo*</label>
-      <input type="text" id="fullName" name="fullName" required>
-
-      <label for="email">Email*</label>
-      <input type="email" id="email" name="email" required>
-
-      <label for="message">Mensaje*</label>
-      <textarea id="message" name="message" rows="4" required></textarea>
-
-      <button type="submit">ENVIAR</button>
-    </form>
+  <div class="whatsapp-container">
+    <a href="https://wa.me/1136283952" target="_blank">
+      Tel: 1136283952 / 1133412188
+      <img src="Assets/icons/whatsapp_comic.png" class="whatsapp" alt="WhatsApp" width="60" height="60">
+    </a>
   </div>
 
-  <!-- Columna derecha: información de contacto -->
-  <div class="contact-info">
-    <h3>Contacto:</h3><br>
-    <p>PRESIDENTE:<strong>ALAN ARIEL FERNANDEZ</strong> <br>
-    <p>SECRETARIA:<strong> MARIA EUGENIA POMBO</strong></p> 
-    <p>RESPONSABLE DE CUENTAS: <strong>ESTEBAN MAXIMILIANO RIO PEREYRA</strong></p><br>
-    <p>Sociedad creativa Argentina</p>
-    <p>Email: <a href="Sociedadcreativa@gmail.com">Sociedad.creativa.argentina.of@gmail.com
-</a></p>
-    <!-- Logo de la organización (marcador de imagen) -->
-    <img src="Assets/img/logo whatsapp verde.jpg" alt="Logotipo Alianza para la Acción Climática Argentina">
-  </div>
-</section>
+  <section class="contact-section">
+    <div class="contact-form">
+      <h2>Contáctenos</h2>
+      <form action="#" method="post">
+        <label for="fullName">Nombre completo*</label>
+        <input type="text" id="fullName" name="fullName" required>
 
-<footer class="footer">
-  <div class="footer-left">
-    <img src="Assets/img/logo whatsapp verde.jpg" alt="Logo" class="footer-logo">
-    <span>© Todos los derechos reservados 2025.</span>
-  </div>
-  <div class="footer-right">
-    <span>Diseño y desarrollo: <a href="https://github.com/Mgabrizuela017" target="_blank">Marcos G. Brizuela</a></span>
-  </div>
-</footer>
+        <label for="email">Email*</label>
+        <input type="email" id="email" name="email" required>
 
+        <label for="message">Mensaje*</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">ENVIAR</button>
+      </form>
+    </div>
+
+    <div class="contact-info">
+      <h3>Contacto:</h3>
+      <p><strong>PRESIDENTE:</strong> ALAN ARIEL FERNANDEZ</p>
+      <p><strong>SECRETARIA:</strong> MARIA EUGENIA POMBO</p> 
+      <p><strong>RESPONSABLE DE CUENTAS:</strong> ESTEBAN MAXIMILIANO RIO PEREYRA</p>
+      <br>
+      <p>Sociedad creativa Argentina</p>
+      <p>Email: 
+        <a href="mailto:Sociedad.creativa.argentina.of@gmail.com">
+          Sociedad.creativa.argentina.of@gmail.com
+        </a>
+      </p>
+      <img src="Assets/img/logo whatsapp verde.jpg" alt="Logotipo">
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-left">
+      <img src="Assets/img/logo whatsapp verde.jpg" alt="Logo" class="footer-logo">
+      <span>© Todos los derechos reservados 2025.</span>
+    </div>
+    <div class="footer-right">
+      <span>Diseño y desarrollo: <a href="https://github.com/Mgabrizuela017" target="_blank">Marcos G. Brizuela</a></span>
+    </div>
+  </footer>
 </body>
 </html>
