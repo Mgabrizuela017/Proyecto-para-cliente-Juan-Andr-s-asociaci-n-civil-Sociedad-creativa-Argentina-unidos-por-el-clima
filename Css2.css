@@ -194,7 +194,7 @@
     }
     .historia {
       
-      max-width: 895px;
+      max-width: 665px;
       margin: auto;
       margin-top: 20px;
       background: #fff;
@@ -206,8 +206,8 @@
     }
     .historia iframe{
       width: 100%;
-      height: 550px;
-      object-fit: cover;
+      height: 300px;
+      object-fit:cover;
     }
     .historia h3 {
       margin: 15px;
@@ -309,6 +309,12 @@
 .whatsapp-container {
   position: fixed;
   bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+.tiktok-container{
+  position: fixed;
+  bottom: 100px;
   right: 20px;
   z-index: 1000;
 }

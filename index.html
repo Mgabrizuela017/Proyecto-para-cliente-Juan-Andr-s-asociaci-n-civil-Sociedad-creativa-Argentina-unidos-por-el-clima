@@ -1,158 +1,334 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Proyecto Climático</title>
-  <link rel="stylesheet" href="Css2.css">
-<style>
-   
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inicio • Sociedad Creativa Argentina</title>
+  <link rel="stylesheet" href="Css2.css" />
+  <style>
+    /* ===== Reset ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; }
+    html { background-color: #fff; }
+    body { font-family: Arial, sans-serif; overflow-x: hidden; background-color: #fff; color: #111; display: flex; flex-direction: column; min-height: 100vh; }
+
+    /* ===== Header / Nav ===== */
+    header { width: 100%; background: linear-gradient(180deg, #267E91, #4EAA4D); box-shadow: 0 2px 4px rgba(0,0,0,.1); position: sticky; top: 0; z-index: 1000; }
+    .navbar { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1rem; }
+    .navbar .logo img { height: 72px; border-radius: 50%; }
+    .Titulo { color: #fff; text-shadow: 2px 2px 3px #000; margin-left: -120px; white-space: nowrap; }
+    .navbar ul { list-style: none; display: flex; gap: 1.25rem; }
+    .navbar ul li a { text-decoration: none; color: #fff; font-weight: 600; }
+    .navbar ul li a:hover { color: #000; }
+
+    /* Botón sol/luna junto al menú */
+    .theme-toggle { width: 42px; height: 42px; border-radius: 50%; border: none; background: #0b74ff; color: #fff; font-size: 1.2rem; cursor: pointer; display: grid; place-items: center; transition: transform .2s, background .2s; }
+    .theme-toggle:hover { transform: scale(1.06); background: #085ecc; }
+
+    /* ===== WhatsApp flotante ===== */
+    .whatsapp-container { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
+    .whatsapp { width: 60px; height: 60px; border-radius: 50%; }
+
+    /* ===== Slider ===== */
+    .slider { position: relative; width: 100%; height: 80vh; overflow: hidden; background: #000; }
+    .slides { display: flex; width: 100%; height: 100%; transition: transform .6s ease; }
+    .slide { width: 100%; flex-shrink: 0; height: 100%; position: relative; }
+    .slide img { width: 100%; height: 100%; object-fit: contain; background: #000; }
+    .slide .caption { position: absolute; bottom: 20%; left: 10%; color: #fff; z-index: 2; }
+    .slide .caption h1 { font-size: 2.5rem; }
+    .slide .caption p { font-size: 1.1rem; }
+    .slide .caption a { display: inline-block; margin-top: 1rem; padding: .8rem 1.5rem; background: linear-gradient(90deg, #2a9d2f, #007BFF); color: #fff; text-decoration: none; border-radius: 6px; }
+
+    /* Controles */
+    .prev, .next { position: absolute; top: 50%; transform: translateY(-50%); font-size: 2rem; color: #fff; background: rgba(0,0,0,.4); padding: .5rem; cursor: pointer; border-radius: 50%; z-index: 5; user-select: none; }
+    .prev { left: 20px; }
+    .next { right: 20px; }
+
+    /* Dots */
+    .dots { position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%); display: flex; gap: .5rem; z-index: 5; }
+    .dots span { width: 12px; height: 12px; background: rgba(255,255,255,.6); border-radius: 50%; cursor: pointer; }
+    .dots .active { background: #fff; }
+
+    /* ===== Noticias ===== */
+    .noticias { background: #e6f0ec; padding: 50px 20px; text-align: center; }
+    .noticias h2 { margin-bottom: 30px; font-size: 2rem; }
+    .noticias-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
+    .noticia { background: #fff; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,.1); overflow: hidden; text-align: left; }
+    .noticia img { width: 100%; height: 180px; object-fit: cover; }
+    .noticia h3 { margin: 15px; font-size: 1.2rem; }
+    .noticia p { margin: 0 15px 16px; font-size: .95rem; color: #555; }
+    .noticia a { color: inherit; text-decoration: none; }
+    .noticia a:hover { text-decoration: underline; }
+
+    /* ===== Historias / Video ===== */
+    .historias { background: #2c8898; color: #fff; padding: 50px 20px; text-align: center; }
+    .historias h2 { margin: 0 auto 30px; font-size: 2.1rem; color: #000; background: #fff; width: min(900px, 100%); padding: 10px; border-radius: 20px; }
+    .historia { max-width: 895px; margin: 20px auto 0; background: #fff; color: #000; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,.2); text-align: left; }
+    .historia iframe { width: 100%; height: 550px; border: 0; display: block; }
+    .historia h3 { margin: 15px; }
+    .historia p { margin: 0 15px 15px; }
+
+    /* ===== Texto + Galería ===== */
+    .container { display: flex; justify-content: space-between; align-items: stretch; padding: 20px; gap: 20px; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; }
+    .texto { flex: 1 1 320px; padding: 20px; color: #000; font-size: 1.1rem; }
+    .gallery { flex: 1 1 320px; max-width: 600px; height: 500px; position: relative; border-radius: 12px; overflow: hidden; }
+    .gallery img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; transition: opacity 1s ease-in-out; background: #000; }
+    .gallery img.active { opacity: 1; }
+
+    /* ===== Banner ===== */
+    .banner { background: rgba(128, 0, 128, .3); text-align: center; padding: 40px 20px; }
+    .banner a { background: #fff; color: purple; padding: 15px 30px; border-radius: 30px; font-weight: 700; text-decoration: none; transition: .25s; display: inline-block; }
+    .banner a:hover { background: #ddd; }
+
+    /* ===== Footer ===== */
+    .footer { margin-top: auto; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; background: linear-gradient(180deg, #267E91, #4EAA4D); color: #fff; padding: 16px 24px; font-size: 14px; }
+    .footer-logo { height: 35px; margin-right: 10px; border-radius: 50%; }
+    .footer-left { display: flex; align-items: center; gap: 8px; }
+    .footer-right a { color: #fff; text-decoration: none; font-weight: 700; }
+    .footer-right a:hover { text-decoration: underline; }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 992px) {
+      .Titulo { margin-left: 0; }
+      .navbar { flex-wrap: wrap; }
+      .navbar .logo img { height: 64px; }
+      .slider { height: 65vh; }
+      .historia iframe { height: 420px; }
+      .gallery { height: 380px; }
+    }
+    @media (max-width: 768px) {
+      .navbar { flex-direction: column; align-items: flex-start; gap: .75rem; }
+      .navbar ul { flex-wrap: wrap; }
+      .Titulo { font-size: 1.2rem; }
+      .slider { height: 55vh; }
+      .historia iframe { height: 320px; }
+      .gallery { height: 300px; }
+    }
+    @media (max-width: 480px) {
+      .slider { height: 45vh; }
+      .historia iframe { height: 220px; }
+      .gallery { height: 240px; }
+      .navbar .logo img { height: 56px; }
+    }
+
+    /* ===== Dark Mode ===== */
+    body.dark-mode { background: #121212; color: #e6e6e6; }
+    body.dark-mode header { background: linear-gradient(180deg, #0f3a42, #1f4d1e); box-shadow: 0 2px 4px rgba(0,0,0,.4); }
+    body.dark-mode .navbar ul li a { color: #e6e6e6; }
+    body.dark-mode .navbar ul li a:hover { color: #9adf9b; }
+    body.dark-mode .theme-toggle { background: #ff9800; }
+    body.dark-mode .theme-toggle:hover { background: #e68900; }
+
+    body.dark-mode .slider { background: #000; }
+    body.dark-mode .dots span { background: rgba(255,255,255,.45); }
+    body.dark-mode .dots .active { background: #fff; }
+
+    body.dark-mode .noticias { background: #0f1a19; }
+    body.dark-mode .noticia { background: #1e1e1e; color: #e6e6e6; box-shadow: 0 4px 10px rgba(0,0,0,.5); }
+    body.dark-mode .noticia p { color: #c7c7c7; }
+
+    body.dark-mode .historias { background: #1a2f35; color: #e6e6e6; }
+    body.dark-mode .historias h2 { background: #0f1a19; color: #e6e6e6; }
+    body.dark-mode .historia { background: #111; color: #e6e6e6; }
+
+    body.dark-mode .banner { background: rgba(128, 0, 128, .25); }
+    body.dark-mode .banner a { background: #1e1e1e; color: #e6e6e6; }
+
+    body.dark-mode .footer { background: linear-gradient(180deg, #0f3a42, #1f4d1e); }
   </style>
 </head>
 <body>
   <header>
     <nav class="navbar">
       <div class="logo">
-        <img src="Assets/img/logo whatsapp verde.jpg" alt="Logo">
+        <img src="Assets/img/logo whatsapp verde.jpg" alt="Logo" />
       </div>
-     <h1 class="Titulo">Sociedad creativa Argentina</h1>
+      <h1 class="Titulo">Sociedad creativa Argentina</h1>
       <ul>
         <li><a href="index.html">Inicio</a></li>
-        <li><a href="#">Nosotros</a></li>
-        <li><a href="#">Noticias</a></li>
+        <li><a href="Nosotros.html">Nosotros</a></li>
         <li><a href="Contacto.html">Contacto</a></li>
+        <li><a href="https://creativesociety.com/es/climate-model">Noticias</a></li>
       </ul>
+      <!-- Botón Tema -->
+      <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema" title="Cambiar tema">🌙</button>
     </nav>
   </header>
 
-<div class="whatsapp-container">
-  <a href="https://wa.me/5491126386864" target="_blank">
-<img src="Assets/icons/whatsapp_comic.png" class="whatsapp" alt="WhatsApp" width="80px" height="80px"></a>
+  <!-- WhatsApp -->
+  <div class="whatsapp-container">
+    <a href="https://wa.me/5491126386864" target="_blank" rel="noopener">
+      <img src="Assets/icons/whatsapp_comic.png" class="whatsapp" alt="WhatsApp" />
+    </a>
+  </div>
+<div class="tiktok-container">
+    <a href="https://www.tiktok.com/@universcreativ?_t=ZM-8z13H1oELhg&_r=1" target="_blank" rel="noopener">
+      <img src="Assets/icons/tiktok-button.png" class="whatsapp" alt="WhatsApp" />
+    </a>
+  </div>
+
+ <!-- SLIDER PRINCIPAL -->
+<div class="slides">
+<div class="slide">
+<img src="Assets/img/sequia extrema en argentina.png" alt="Slide 1">
+<div class="caption">
+<h1>Bienvenido</h1>
+<p>Este es nuestro sitio</p>
+<a href="#">Conócenos</a>
 </div>
-
-
-  <!-- SLIDER -->
-  <section class="slider">
-    <div class="slides">
-      <div class="slide">
-        <img src="Assets/img/portada 4 sociedad creativa..jpeg" alt="slide1">
-        <div class="caption">
-          <!--<h1>Alianza para la Acción Climática Argentina</h1>
-          <p>Cumpliendo el Acuerdo de París con actores no estatales.</p>
-          <a href="#">Más información</a>-->
-        </div>
-      </div>
-      <div class="slide">
-        <img src="Assets/img/portada png.jpg" alt="slide2" style="object-fit: cover;" >
-        <div class="caption">
-          <!--<h1>Compromiso con la Naturaleza</h1>
-          <p>Trabajando juntos por un futuro sostenible.</p>
-          <a href="#">Descubrir más</a>-->
-        </div>
-      </div>
-      <div class="slide">
-        <img src="Assets/img/Portada.png" alt="slide3">
-        <div class="caption">
-          <!--<h1>Acción Colectiva</h1>
-          <p>Construyendo alianzas para enfrentar la crisis climática.</p>
-          <a href="#">Ver proyectos</a>-->
-        </div>
-      </div>
-    </div>
-    <div class="prev">&#10094;</div>
-    <div class="next">&#10095;</div>
-    <div class="dots">
-      <span class="active"></span>
-      <span></span>
-      <span></span>
-    </div>
-  </section>
-
-
-
-    
-
-<section class="noticias">
+</div>
+<div class="slide">
+<img src="Assets/img/Noticias.jpg" alt="Slide 2">
+<div class="caption">
+<h1>Novedades</h1>
+<p>Entérate de lo último</p>
+<a href="#noticias">Ver más</a>
+</div>
+</div>
+<div class="slide">
+<img src="Assets/img/Portada.png" alt="Slide 3">
+<div class="caption">
+<h1>Historias de Éxito</h1>
+<p>Conoce nuestras experiencias</p>
+<a href="#historias">Explorar</a>
+</div>
+</div>
+</div>
+<div class="prev">&#10094;</div>
+<div class="next">&#10095;</div>
+<div class="dots">
+<span class="active"></span>
+<span></span>
+<span></span>
+</div>
+</div>
+  <!-- ===== Noticias ===== -->
+  <section class="noticias">
     <h2>Noticias</h2>
     <div class="noticias-container">
       <div class="noticia">
-        <img src= "Assets/img/Noticias.jpg" alt="Noticia 1">
-        <h3>Reporte climatico Siberia</h3>
+        <img src="Assets/img/calor en siberia.jpeg" alt="Noticia 1" />
+        <h3>Reporte climático Siberia</h3>
         <p>SOBRE LA AMENAZA DE UNA ERUPCIÓN DE LA PLUMA MAGMÁTICA EN SIBERIA Y ESTRATEGIAS PARA ABORDAR EL PROBLEMA</p>
       </div>
       <div class="noticia">
-        <img src="Assets/img/impacto hidraulico.png" alt="Noticia 2">
+        <img src="Assets/img/destacada-nanoplastico.jpg" alt="Noticia 2" />
         <h3>Nanoplásticos en la biosfera</h3>
-        <a href="Assets/document/Nanoplasticos_en_la_Biosfera_Informe_ES (1).pdf" target="_blank"><p>INFORME MICROPLÁSTICOS Y NANOPLÁSTICOS VOLUMEN ANUAL DE PRODUCCIÓN DE RESINAS Y FIBRAS DEL IMPACTO MOLECULAR A LA CRISIS PLANETARIA</p></a>
+        <a href="Assets/document/Nanoplasticos_en_la_Biosfera_Informe_ES (1).pdf" target="_blank" rel="noopener">
+          <p>INFORME MICROPLÁSTICOS Y NANOPLÁSTICOS: DEL IMPACTO MOLECULAR A LA CRISIS PLANETARIA</p>
+        </a>
       </div>
       <div class="noticia">
-        <img src="Assets/img/urgente plantea.jpg" alt="Noticia 3">
-        <h3>Reporte climatico</h3>
-        <p>SOBRE LA PROGRESIÓN DE LOS DESASTRES CLIMÁTICOS EN LA TIERRA Y SUS CONSECUENCIAS
-        CATASTRÓFICAS</p>
+        <img src="Assets/img/urgente plantea.jpg" alt="Noticia 3" />
+        <h3>Reporte climático</h3>
+        <p>SOBRE LA PROGRESIÓN DE LOS DESASTRES CLIMÁTICOS EN LA TIERRA Y SUS CONSECUENCIAS CATASTRÓFICAS</p>
       </div>
     </div>
   </section>
 
-  <!-- Sección video -->
+  <!-- ===== Video ===== -->
   <section class="historias">
     <h2>El momento del cambio es ahora</h2>
-        
-<div class="historia">
-
-      <iframe 
-        src="Assets/img/Video.mp4"
-        title="La fatalidad del núcleo de la Tierra: ¿qué pasaría si se detuviera?" 
-        allow="accelerometer; ; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-        allowfullscreen>
-      </iframe>
-    </figure>    
-
-      <h3>La fatalidad del núcleo de la Tierra: ¿qué pasaría si se detuviera?</h3>
-      <p> Un recorrido directo y visual por las consecuencias extremas de una hipotética falla del núcleo terrestre: debilitamiento del campo magnético, 
-      caos climático, actividad sísmica y el impacto en la vida tal como la conocemos.</p>
-<figure class="video" aria-label="Reproductor del video sobre la fatalidad del núcleo de la Tierra">
-      <!-- Reemplaza el src con el enlace de tu plataforma de video -->
+    <div class="historia">
+      <iframe autoplay muted  src="Assets/img/Jujuy.mp4" title="La fatalidad del núcleo de la Tierra: ¿qué pasaría si se detuviera?" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+     <h2>Jornada de Accion por el clima en San salvador de Jujuy - 29/08 </h2>
+      <p>Durante  la reunion se trataron temas fundamentales como la preocupante contaminacion por Nano plasticos, el aumento de actividad volcanica, la importancia de los generadores de agua atmofericos y la creciente incidencia de desastres climaticos. Durante el evento se distribuyeron y tarjetas informativas a todos los presentes. </p>
     
-</div>
+    </div>
   </section>
 
-<div class="container">
-  <div class="texto">
-    <h2>¿Cómo se originó la Sociedad Creativa?</h2>
-    <br>
-    <p>
-      La mayor encuesta social voluntaria, realizada a lo largo de diez años, reveló una demanda real de un nuevo formato de sociedad. Las respuestas de millones de personas de 180 países confirmaron que la máxima prioridad de la sociedad debe ser el valor de la vida humana.
-    </p><span></span>
-    <br><br><p>A todos los participantes en la encuesta social se les hizo la misma pregunta: “¿En qué tipo de mundo le gustaría vivir?” A partir de las respuestas, se formaron 8 Fundamentos que se convirtieron en la base para construir un nuevo formato de sociedad llamado la Sociedad Creativa. Para ponerla en práctica, hoy personas de todo el mundo se están uniendo y actuando en el marco del proyecto del mismo nombre “Sociedad Creativa”.</p>
-    <p></p>
-</div>
-
-  <div class="gallery">
-    <img src="Assets/img/grupoBSAS.jpg" alt="Imagen 1" class="active">
-    <img src="Assets/img/grupo humano.png.jpg" alt="Imagen 2">
-    <img src="Assets/img/Grupo humano sociedad creativa.png.jpg" alt="Imagen 3">
-    <img src="Assets/img/sociedad argentina.jpg" alt="Imagen 3">
+  <!-- ===== Texto + Galería ===== -->
+  <div class="container">
+    <div class="texto">
+      <h2>¿Cómo se originó la Sociedad Creativa?</h2>
+      <p>La mayor encuesta social voluntaria, realizada a lo largo de diez años, reveló una demanda real de un nuevo formato de sociedad. Las respuestas de millones de personas de 180 países confirmaron que la máxima prioridad de la sociedad debe ser el valor de la vida humana.</p>
+      <p>A todos los participantes en la encuesta social se les hizo la misma pregunta: “¿En qué tipo de mundo le gustaría vivir?” A partir de las respuestas, se formaron 8 fundamentos que se convirtieron en la base para construir un nuevo formato de sociedad llamado la Sociedad Creativa.</p>
+    </div>
+    <div class="gallery">
+      <img src="Assets/img/grupoBSAS.jpg" alt="Imagen 1" class="active" />
+      <img src="Assets/img/grupo humano.png.jpg" alt="Imagen 2" />
+      <img src="Assets/img/Grupo humano sociedad creativa.png.jpg" alt="Imagen 3" />
+      <img src="Assets/img/sociedad argentina.jpg" alt="Imagen 4" />
+    </div>
   </div>
-</div>
+<script>
+    // ===== SLIDER DE GALERÍA =====
+    let galleryIndex = 0;
+    const galleryImgs = document.querySelectorAll('.gallery img');
+    function showGallerySlide() {
+      galleryImgs.forEach((img, i) => { img.classList.toggle('active', i === galleryIndex); });
+      galleryIndex = (galleryIndex + 1) % galleryImgs.length;
+    }
+    setInterval(showGallerySlide, 4000);</script>
 
-<script src="js.js"></script>
-  
-<!-- Banner final -->
+  <!-- ===== Banner ===== -->
   <section class="banner">
     <a href="#">ÚNETE AHORA</a>
   </section>
 
-<footer class="footer">
-  <div class="footer-left">
-    <img src="Assets/img/logo whatsapp verde.jpg" alt="Logo" class="footer-logo">
-    <span>© Todos los derechos reservados 2025.</span>
-  </div>
-  <div class="footer-right">
-    <span>Diseño y desarrollo: <a href="https://github.com/Mgabrizuela017" target="_blank">Marcos G. Brizuela</a></span>
-  </div>
-</footer>
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="footer-left">
+      <img src="Assets/img/logo whatsapp verde.jpg" alt="Logo" class="footer-logo" />
+      <span>© Todos los derechos reservados 2025.</span>
+    </div>
+    <div class="footer-right">
+      <span>Diseño y desarrollo: <a href="https://github.com/Mgabrizuela017" target="_blank" rel="noopener">Marcos G. Brizuela</a></span>
+    </div>
+  </footer>
 
+  <script>
+    // ===== Toggle Dark / Light (con memoria) =====
+    (function() {
+      const body = document.body;
+      const btn = document.getElementById('theme-toggle');
+      // Cargar preferencia guardada o usar prefers-color-scheme
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        body.classList.add('dark-mode');
+        btn.textContent = '☀️';
+      }
+      btn.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        const isDark = body.classList.contains('dark-mode');
+        btn.textContent = isDark ? '☀️' : '🌙';
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      });
+    })();
+
+    // ===== SLIDER PRINCIPAL =====
+    const slides = document.querySelector('.slides');
+    const slideCount = document.querySelectorAll('.slide').length;
+    const prev = document.querySelector('.prev');
+    const next = document.querySelector('.next');
+    const dots = document.querySelectorAll('.dots span');
+    let slideIndex = 0;
+    let autoTimer;
+
+    function showMainSlide(i) {
+      if (typeof i === 'number') slideIndex = i;
+      if (slideIndex >= slideCount) slideIndex = 0;
+      if (slideIndex < 0) slideIndex = slideCount - 1;
+      slides.style.transform = `translateX(${-slideIndex * 100}%)`;
+      dots.forEach(d => d.classList.remove('active'));
+      if (dots[slideIndex]) dots[slideIndex].classList.add('active');
+    }
+
+    function startAuto() { autoTimer = setInterval(() => { slideIndex++; showMainSlide(); }, 4000); }
+    function stopAuto() { clearInterval(autoTimer); }
+
+    prev.addEventListener('click', () => { slideIndex--; showMainSlide(); });
+    next.addEventListener('click', () => { slideIndex++; showMainSlide(); });
+    dots.forEach((dot, i) => dot.addEventListener('click', () => showMainSlide(i)));
+
+    // Pausa al pasar el mouse en desktop
+    document.querySelector('.slider').addEventListener('mouseenter', stopAuto);
+    document.querySelector('.slider').addEventListener('mouseleave', startAuto);
+
+    showMainSlide(0); startAuto();
+
+   
+  </script>
 </body>
 </html>
-
