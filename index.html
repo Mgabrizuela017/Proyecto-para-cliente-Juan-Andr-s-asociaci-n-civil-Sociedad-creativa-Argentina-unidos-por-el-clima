@@ -111,6 +111,27 @@
   }
 
   /* SLIDER */
+/* ==== FIX ANCHO MÓVIL ==== */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.slides {
+  width: 100%;
+  overflow: hidden;
+}
+
+.slide {
+  flex: 0 0 100%;
+}
+
   .slider {
     height: 220px;
   }
@@ -183,26 +204,7 @@
   .footer-left {
     flex-direction: column;
   }
-/* ==== FIX ANCHO MÓVIL ==== */
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
-}
 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-.slides {
-  width: 100%;
-  overflow: hidden;
-}
-
-.slide {
-  flex: 0 0 100%;
-}
 
 }
 
