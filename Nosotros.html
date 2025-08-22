@@ -188,7 +188,7 @@ background:url(Assets/img/nublado.png)no-repeat ;
 }*/
 .alianza{
     text-align: left;
-    background-color: rgba(255, 255, 255, 0.205);
+    background-color: rgba(255, 255, 255, 0.473);
    
 }
 /*.alianza{
@@ -270,14 +270,102 @@ background-color: rgba(255, 255, 255, 0.363);
     text-align: left;
   }
 }
-  </style>
+/* ===== Galería de Integrantes ===== */
+.integrantes {
+  background: #f5f5f5;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.integrantes h2 {
+  font-size: 2.3rem;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+.galeria-integrantes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 2200px;
+  margin: 0 auto;
+}
+
+.integrante {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+.integrante:hover {
+  transform: translateY(-8px);
+}
+
+.integrante img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.integrante h3 {
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+  color: #267E91;
+}
+
+.integrante p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Dark mode para galería */
+body.dark-mode .integrantes {
+  background: #0f1a19;
+  color: #e6e6e6;
+}
+
+body.dark-mode .integrante {
+  background: #1e1e1e;
+  color: #e6e6e6;
+  box-shadow: 0 4px 12px rgba(0,0,0,.6);
+}
+.word{
+    background: url(Assets/img/fondo_blanco.jpg)no-repeat;
+    background-size: cover;
+}
+.word p{
+    font-size: 1.8rem;
+    padding: 30px;
+    text-align: center;
+}
+
+.word h2{
+    color:#085ecc;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.word img{
+    width: 700px;
+    justify-content: center;
+    display: block;
+    margin: 0 auto;
+    border: 4px solid black;
+    margin-bottom: 20px;
+}
+
+</style>
 </head>
 <body>
 
 <header>
   <nav class="navbar">
     <div class="logo">
-      <img src="Assets/img/logo whatsapp verde.jpg" alt="Logo" />
+        <a href="index.html"><img src="Assets/img/logo whatsapp verde.jpg" alt="Logo" /></a>
     </div>
     <h1 class="Titulo">Sociedad creativa Argentina</h1>
     <ul>
@@ -293,10 +381,13 @@ background-color: rgba(255, 255, 255, 0.363);
             <source src="Assets/img/Video.mp4" type="video/mp4">
             Tu navegador no soporta videos HTML5.
 
-        </video>
-  <h3> La fatalidad del núcleo de la Tierra: ¿qué pasaría si se detuviera?</h3>
+      
+ <figcaption> 
+      <h3> La fatalidad del núcleo de la Tierra: ¿qué pasaría si se detuviera?</h3>
       <p>Un recorrido directo y visual por las consecuencias extremas de una hipotética falla del núcleo terrestre: debilitamiento del campo magnético, caos climático, actividad sísmica y el impacto en la vida tal como la conocemos.</p>
-  <!-- WhatsApp -->
+</figcaption>  
+  </video>
+<!-- WhatsApp -->
   <div class="whatsapp-container">
     <a href="https://wa.me/5491136283952" target="_blank" rel="noopener">
       <img src="Assets/icons/whatsapp_comic.png" class="whatsapp" alt="WhatsApp" />
@@ -359,8 +450,56 @@ background-color: rgba(255, 255, 255, 0.363);
     </p>
   </section>
 
-</body>
-</html>
+
+<!-- ===== Galería de Integrantes ===== -->
+<section class="integrantes">
+  <h2>Nuestro Equipo</h2>
+  <div class="galeria-integrantes">
+    <div class="integrante">
+      <img src="Assets/img/Navidad.png.jpg" alt="Integrante 1">
+      <h3>Jornada de noche buena</h3>
+      <p>Rol o función</p>
+    </div>
+    <div class="integrante">
+      <img src="Assets/img/Grupo humano sociedad creativa.png.jpg" alt="Integrante 2">
+      <h3>Parque centenario</h3>
+      <p>Rol o función</p>
+    </div>
+    <div class="integrante">
+      <img src="Assets/img/grupo humano.png.jpg" alt="Integrante 3">
+      <h3>Jornada de accion</h3>
+      <p>Rol o función</p>
+    </div>
+    <div class="integrante">
+      <img src="Assets/img/grupoBSAS.jpg" alt="Integrante 4">
+      <h3>Teatro Colon</h3>
+      <p>Rol o función</p>
+    </div>
+    <!-- 🔥 Agrega más bloques .integrante según necesites -->
+  </div>
+</section>
+
+<div class="word">
+<h2 class="sub_word"> “Diagnóstico de la enfermedad Social: Fractura y División”</h2>
+<p>El estado vibratorio que nos tiene acostumbrado la “GRIETA” es la comida diaria de nuestras frustraciones y el engorde permanente de los que nos gobiernan… Hay tantas causas que ustedes ya lo saben, no hace falta contarlas. Garantizar de ahora en más el reclamo legítimo del ser humano debe ponerse en un nuevo“Nacimiento de la Constitución Nacional Argentina” y no hay otro camino que la Asamblea Constituyente. Los invitamos a estudiar La propuesta de la Sociedad Creativa disponible en la página creativesociety.com/es. Claro está que en cada país el marco Constitucional es diferente, es imperioso entonces que estudiemos la manera de poner al “Ser Humano como máxima Institución”. Esto no significa que se terminen de forma instantánea el estado de las cosas, pero va a permitir crear un marco Constitucional y luego legal y jurídico para nuevos espacios y nuevas Instituciones que funcionen adecuadamente, ya que, los cambios que estamos viviendo con el crecimiento exponencial tecnológico en el que la tecnología reemplaza al hombre, lleva a pensar, ¿quéva hacer el hombre?...
+Vemos entonces el Poder de las Corporaciones imponiendo casi permanentemente la agenda a medios de comunicación y el resto de los poderes. - Poder Judicial - Poder Legislativo y Poder Ejecutivo.
+</p>
+
+<h2 class="sub_word">CREAR MARCO LEGAL CONSTITUCIONAL
+
+
+“EL SER HUMANO COMO MÁXIMA INSTITUCIÓN”</h2>
+
+<p>Actualmente escarbamos un poco en la realidad y nos encontramos que los medios o los poderes aumentan la carga sobre los más débiles, entonces ya sabemos para quienes trabajan todos los poderes… “Simple pregunta”.
+</p>
+<p>¿En las democracias más avanzadas se cumple un Estado garante de las Instituciones y los Derechos del ser Humano? No.</p>
+<p>         La visión que uno tiene es que, la democracia debe ser un lugar más amplio, tendría que caminar, por así decirlo, hacia una democracia superadora o se podría llamar Súper democracia o como nosotros le llamamos Sociedad Creativa. Entonces, ¿cuál es el punto de inflexión que va a permitir modificar los roles para proyectar una vida mejor?
+  El voto vinculante, puede ser usado en la toma de decisiones. En lo que se llama en algunos países Referéndum o Plebiscito y en Argentina se llama Consulta Popular. En sí, lo que significa es qué las leyes y las decisiones más importantes la tomaremos todos juntos al decidir el tipo de sociedad queremos, y segundo que los proyectos se votaran en una plataforma o aplicación y no podrá ser vetada por el ejecutivo o por la autoridad, ya que la autoridad más relevante es el voto de la mayoría acompañando este proyecto,  por ejemplo: Si se presenta un proyecto, y este va tomando envión y va siendo acompañado por la mayoría hasta llegar a su implementación, el ejecutivo o autoridad en funciones debe acatar los que decidió la mayoría…
+ Hay que abrir los márgenes de la democracia. Hoy tenemos lo que se llama voto cautivo. Ósea una vez que votamos nuestros representantes hacen y acuerdan lo que se les pide y no lo que prometieron. 
+En una Sociedad Creativa la mayoría votaría un proyecto este se ejecuta porque la autoridad mandante es la misma autoridad que autoriza la ejecución del proyecto. Esto hace que la representación deje de estar solo en la mano de los políticos electos y pase a ser una representación compartida por la mayoría de los votantes.
+</p>
+<img src="Assets/img/bases legales del proyecto.jpg">
+</div>
   <!-- ===== Footer ===== -->
   <footer class="footer">
     <div class="footer-left">
@@ -371,7 +510,8 @@ background-color: rgba(255, 255, 255, 0.363);
       <span>Diseño y desarrollo: <a href="https://github.com/Mgabrizuela017" target="_blank" rel="noopener">Marcos G. Brizuela</a></span>
     </div>
   </footer>
- 
+ </body>
+</html>
   <script>
     const toggleBtn = document.getElementById("theme-toggle");
     const body = document.body;
