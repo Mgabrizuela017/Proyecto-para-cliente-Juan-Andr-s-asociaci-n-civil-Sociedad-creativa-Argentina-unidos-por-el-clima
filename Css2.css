@@ -197,7 +197,7 @@
       max-width: 665px;
       margin: auto;
       margin-top: 20px;
-      background: #fff;
+      background: 4EAA4D;
       color: #000;
       border-radius: 10px;
       overflow: hidden;
@@ -218,7 +218,7 @@
 
     /* Banner final */
     .banner {
-      background: rgba(128, 0, 128, 0.308);
+      background: rgb(128, 0, 128);
       text-align: center;
       padding: 40px 20px;
     }

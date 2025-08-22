@@ -11,7 +11,9 @@
     html, body { height: 100%; }
     html { background-color: #fff; }
     body { font-family: Arial, sans-serif; overflow-x: hidden; background-color: #000000; color: #111; display: flex; flex-direction: column; min-height: 100vh; }
-
+section{background: url(Assets/img/portada\ clima\ \(1\).png)no-repeat;
+        background-size: cover;
+}
     /* ===== Header / Nav ===== */
     header { width: 100%; background: linear-gradient(180deg, #267E91, #4EAA4D); box-shadow: 0 2px 4px rgba(0,0,0,.1); position: sticky; top: 0; z-index: 1000; }
     .navbar { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1rem; }
@@ -172,20 +174,37 @@
 }
 
 .alianza, .mision-vision, .pasos {
-  max-width: 1100px;  /* ancho máximo centrado */
+  max-width: 6100px;  /* ancho máximo centrado */
   margin: 0 auto;
   padding: 60px 40px; /* espacio superior e inferior */
+  font-size: 1.8rem;
 }
 
 /* Sección ¿Qué es la Alianza...? */
 
-.mision-vision{
-background-color:#007c8a ;
+/*.mision-vision{
+background:url(Assets/img/nublado.png)no-repeat ;
+
+}*/
+.alianza{
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.205);
+   
+}
+/*.alianza{
+ background:url(Assets/img/portada\ clima.png) ;
+background-size: cover;
+
+}*/
+.alianza ul,li{
+    text-align: left;
+    margin-top: 20px;
 }
 
 .alianza h2 {
-  color: #007c8a;
-  font-size: 1.8rem;
+  color: #000000;
+  text-shadow: 2px 2px 3px rgb(0, 0, 0);
+  font-size: 2.3rem;
   margin-bottom: 20px;
 }
 
@@ -193,11 +212,11 @@ background-color:#007c8a ;
 
 
 .mision-vision .contenido {
-  display: flex;
+  display: block;
   align-items: flex-start;
   gap: 30px;
   flex-wrap: wrap;
-background-color: white;
+background-color: rgba(255, 255, 255, 0.363);
 
 
 }
@@ -210,13 +229,16 @@ background-color: white;
   flex-shrink: 0;
 }
 
-.mision-vision .texto h3 {
+.mision-vision .texto h3, h2 {
   margin-top: 0;
-  font-size: 1.5rem;
+  font-size: 2.3rem;
+    color: red;
 }
 
 .mision-vision .texto p {
   margin-bottom: 20px;
+    font-size: 1.8rem;
+    
 }
 
 /* Sección Pasos */
@@ -288,20 +310,20 @@ background-color: white;
 
  <!-- Sección ¿Qué es la Alianza...? -->
   <section class="alianza">
-    <h2>¿Qué es la Alianza para la Acción Climática Argentina?</h2>
+    <h2>EL PROYECTO INTERNACIONAL “SOCIEDAD CREATIVA”</h2>
+    <p><strong>es una asociación voluntaria de personas que trasciende la política y las religiones.</p>
+    <p>Los participantes del proyecto son representantes de distintos grupos étnicos, ámbitos profesionales, esferas sociales y diversas opiniones religiosas y políticas de 180 países del mundo.</strong></p><br>
     <p>
-      En particular, la <strong>Alianza para la Acción Climática Argentina (AACA)</strong>, creada en el año 2018,
-      está conformada por un grupo de instituciones que representan distintos sectores de la sociedad civil:
-      agricultura, sector privado, municipios de todo el país, la provincia de Santa Fe, ONGs y universidades.
-      La AACA busca reconocer, catalizar y multiplicar los esfuerzos de los integrantes, movilizando,
-      implementando acciones locales, para contribuir activamente a la meta del Acuerdo de París (2015) de
-      mantener el aumento promedio de la temperatura debajo de 1.5°C y lograr la adaptación de nuestras
-      sociedades, para conservar así la tierra y cerrar la brecha actual que separa a la implementación de los
-      acuerdos globales. Este nuevo paradigma nos convoca a trabajar conjuntamente para alcanzar un futuro mejor.
-      La Alianza se propone potenciar todos los esfuerzos existentes para combatir la crisis climática sin superponer
-      esfuerzos con otras iniciativas ya en funcionamiento. En este sentido reúne los mejores actores en cada sector
-      con el objetivo de crear sinergias entre ellos.
+      <strong>El proyecto “Sociedad Creativa” se alinea a los objetivos y principios esbozados en la Carta de las Naciones Unidas y contribuye a su aplicación, entre ellos:</strong>
     </p>
+    <ul>
+        <li>mantener la paz y la seguridad internacionales</li>
+        <li>desarrollar las relaciones amistosas entre las naciones</li>
+        <li>lograr la cooperación internacional</li>
+        <li>proteger los derechos humanos</li>
+        <li>apoyar el desarrollo sostenible</li>
+   </ul>
+
   </section>
 
   <!-- Sección Misión y Visión -->
@@ -309,13 +331,12 @@ background-color: white;
     <div class="contenido">
       <img src="Assets/img/logo plateado..jpg" alt="Humedal">
       <div class="texto">
-        <h3>Misión</h3>
+        <h2>Misión</h2>
+        <p><strong>El objetivo de los participantes es llamar la atención de la comunidad internacional sobre el problema de la crisis climática global, así como estudiar sus causas y buscar formas de resolverla.</strong></p>
         <p>
-          Ser una alianza interinstitucional, formada por actores no estatales (sector privado, academia y
-          sociedad civil), provincias y municipios, comprometidos en la acción climática y el desarrollo
-          sostenible. Trabajar de forma colaborativa para aumentar la ambición climática, motivar con el
-          ejemplo y articular con el sector público nacional y con la sociedad en la promoción de la acción
-          climática en Argentina.
+         Los participantes del proyecto “Sociedad Creativa” 
+         han respondido a la llamada a la acción de la ONU para transformar nuestro mundo, esbozada en la Resolución 70/1, adoptada por la Asamblea General el 25 de septiembre de 2015. Guiados por los Objetivos de Desarrollo Sostenible, han unido sus fuerzas y capacidades para proteger el planeta, ejercer los derechos y las libertades humanas 
+        y garantizar que todas las personas vivan en paz, seguridad y prosperidad.
         </p>
         <h3>Visión</h3>
         <p>
@@ -331,10 +352,10 @@ background-color: white;
   <section class="pasos">
     <h3>Los pasos que ya hemos dado</h3>
     <p>
-      Al momento, la AACA se ha presentado en numerosos eventos internacionales estratégicos
+      Sociedad creativa  se ha presentado en numerosos eventos internacionales estratégicos
       mostrando sus objetivos y convocando a más actores a sumarse al esfuerzo mancomunado.
       Entre los espacios en los que ha estado presente se encuentran: COP24 Polonia y COP25 Chile
-      (Madrid), Climate Summits, entre otros.
+      (Madrid), entre otros.
     </p>
   </section>
 
