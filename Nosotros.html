@@ -413,40 +413,7 @@ body.dark-mode .integrante {
     flex-direction: column;
     gap: 0.5rem;
   }
-/* CONTENEDOR GENERAL (para home, nosotros, contacto) */
-section {
-  width: 100%;
-  max-width: 1200px; /* nunca más ancho que esto */
-  margin: 0 auto; /* centrado */
-  padding: 20px;
-  box-sizing: border-box;
-}
 
-/* CORRIGE FILAS QUE SE ESTIRAN */
-.container, .content, .section-inner {
-  display: flex;
-  flex-wrap: wrap; /* evita una sola hilera infinita */
-  justify-content: center;
-  gap: 20px;
-}
-
-/* ELEMENTOS DENTRO DE SECCIONES */
-.container > div,
-.content > div,
-.section-inner > div {
-  flex: 1 1 300px; /* ocupa al menos 300px y se ajusta */
-  max-width: 100%; /* no se pasan del ancho */
-}
-
-@media (max-width: 768px) {
-  section {
-    padding: 15px;
-  }
-  .container, .content, .section-inner {
-    flex-direction: column;
-    text-align: center;
-  }
-}
 }
 
 </style>
