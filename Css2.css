@@ -14,7 +14,7 @@
     /* NAV */
     header {
       width: 100%;
-      background: linear-gradient(180deg, #267E91, #4EAA4D);
+      background: linear-gradient(90deg #4EAA4D),#267E91;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       position: sticky;
       top: 0;
@@ -318,3 +318,48 @@
   right: 20px;
   z-index: 1000;
 }
+
+.subtitulo{
+  font-size: 85%;
+  color: white;
+  text-shadow: black 2px 2px 3px;
+  position: absolute;
+  margin-top: 50px;
+  margin-left: 220px;
+}
+.facebook-container{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+/* Submenú */
+.submenu {
+  display: none;
+  position: absolute;
+  top: 70%; /* debajo de "Noticias" */
+  right: -10;
+      background: #007BFF;
+  border-radius: 100px;
+  padding: 0;
+  margin: 0;
+  min-width: 200px;
+
+}
+
+.submenu li a {
+  padding: 10px 15px;
+  color: white;
+}
+
+.submenu li a:hover {
+ background-color: #007BFF;    
+  border-radius: 100px;
+}
+
+/* Mostrar submenú al hacer hover */
+.menu li:hover > .submenu {
+  display: flex;
+}
+
