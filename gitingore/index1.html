@@ -1,0 +1,268 @@
+<!--<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sociedad creativa Asociacion civil unidos por el clima</title>
+  <link rel="stylesheet" href="Css.css">
+
+  
+</head>
+<body>
+
+  NAV 
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="Assets/img/Sociedad creativa logo.png" alt="Logo" width="100px">
+      </div>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Nosotros</a></li>
+        <li><a href="#">Noticias</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+   HERO 
+  <section class="hero">
+    <h1>Alianza para la Acción Climática Argentina</h1>
+
+  </section>
+
+  GALLERY ->
+  <section class="gallery">
+    <img src="https://source.unsplash.com/600x400/?nature,forest" alt="Imagen 1">
+    <img src="https://source.unsplash.com/600x400/?climate,glacier" alt="Imagen 2">
+    <img src="https://source.unsplash.com/600x400/?mountain" alt="Imagen 3">
+    <img src="https://source.unsplash.com/600x400/?river" alt="Imagen 4">
+    <img src="https://source.unsplash.com/600x400/?tree" alt="Imagen 5">
+    <img src="https://source.unsplash.com/600x400/?sky" alt="Imagen 6">
+  </section>
+
+  <footer>
+    <p>© 2025 Proyecto Climático - Todos los derechos reservados</p>
+  </footer>
+
+</body>
+</html>-->
+
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sociedad creativa</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            z-index: 10;
+        }
+
+        nav img {
+            height: 100px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .btn-donar {
+            background: #00A86B;
+            padding: 8px 16px;
+            border-radius: 20px;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .btn-donar:hover {
+            background: #007e50;
+        }
+
+        /* VIDEO PORTADA */
+        header {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .contenido-header {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .contenido-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .contenido-header p {
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+
+        /* MENÚ HAMBURGUESA */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            background: white;
+            height: 3px;
+            width: 25px;
+            margin: 4px 0;
+            transition: 0.4s;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                width: 200px;
+                display: none;
+                padding: 20px;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <img src="Assets/img/Sociedad creativa logo.png"  alt="Logo">
+        <div class="menu-toggle" id="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul id="menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Proyectos</a></li>
+            <li><a href="#">Voluntariado</a></li>
+            <li><a href="#">Contacto</a></li>
+            <li><a href="#" class="btn-donar">DONÁ AHORA</a></li>
+        </ul>
+    </nav>
+
+    <!-- PORTADA CON VIDEO -->
+    <header>
+        <video autoplay muted loop>
+            <source src="Assets/img/sociedad creativa 2.mp4" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
+        <div class="contenido-header">
+            <h1>Promovemos iniciativas de lucha contra el cambio climático</h1>
+            <p>Inspiramos y lideramos proyectos que generen impacto positivo a las comunidades y organizaciones para un futuro más sostenible.</p>
+        </div>
+    </header>
+
+    <script>
+        const toggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('menu');
+
+        toggle.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+    </script>
+
+</body>
+</html>
+
+  <!-- SLIDER -->
+  <section class="slider">
+    <div class="slides">
+      <div class="slide">
+        <img src="Assets/img/portada 4 sociedad creativa..jpeg" alt="slide1">
+        <div class="caption">
+          <!--<h1>Alianza para la Acción Climática Argentina</h1>
+          <p>Cumpliendo el Acuerdo de París con actores no estatales.</p>
+          <a href="#">Más información</a>-->
+        </div>
+      </div>
+      <div class="slide">
+        <img src="Assets/img/portada png.jpg" alt="slide2" style="object-fit: cover;" >
+        <div class="caption">
+          <!--<h1>Compromiso con la Naturaleza</h1>
+          <p>Trabajando juntos por un futuro sostenible.</p>
+          <a href="#">Descubrir más</a>-->
+        </div>
+      </div>
+      <div class="slide">
+        <img src="Assets/img/Portada.png" alt="slide3">
+        <div class="caption">
+          <!--<h1>Acción Colectiva</h1>
+          <p>Construyendo alianzas para enfrentar la crisis climática.</p>
+          <a href="#">Ver proyectos</a>-->
+        </div>
+      </div>
+    </div>
+    <div class="prev">&#10094;</div>
+    <div class="next">&#10095;</div>
+    <div class="dots">
+      <span class="active"></span>
+      <span></span>
+      <span></span>
+    </div>
+  </section>
