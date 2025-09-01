@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Inicio • Sociedad Creativa Argentina</title>
   <link rel="stylesheet" href="Css2.css" />
+<script src="js.js"></script>
   <style>
     /* ===== Reset ===== */
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -245,11 +246,102 @@
       <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema" title="Cambiar tema">🌙</button>
     </nav>
   </header>
-<audio autoplay loop>
-    <source src="Assets/img/Audio de WhatsApp 2025-08-19 a las 21.43.12_becddd11.mp3" type="audio/mpeg">
-    Tu navegador no soporta el audio.
-  </audio>
-      
+
+<audio id="miAudio" controls autoplay>
+  <source src="Assets/img/Audio de WhatsApp 2025-08-19 a las 21.43.12_becddd11.mp3" type="audio/mpeg">
+  Tu navegador no soporta el audio.
+</audio>
+
+<div class="volumen-container">
+  <label for="volumenSlider">Volumen:</label>
+  <input type="range" id="volumenSlider" min="0" max="1" step="0.1" value="1">
+  <span id="volumenValor">100%</span>
+  <button onclick="muteAudio()">🔇</button>
+  <button onclick="maxAudio()">🔊</button>
+</div>
+
+<style>
+  .volumen-container {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+  }
+
+  #volumenSlider {
+    -webkit-appearance: none;
+    width: 200px;
+    height: 8px;
+    background: linear-gradient(90deg, #4caf50, #8bc34a);
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+  }
+
+  #volumenSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #4caf50;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  #volumenSlider::-webkit-slider-thumb:hover {
+    background: #e8f5e9;
+  }
+
+  #volumenValor {
+    font-weight: bold;
+    color: #4caf50;
+    min-width: 50px;
+    text-align: center;
+  }
+
+  button {
+    border: none;
+    background: #4caf50;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.2s;
+  }
+
+  button:hover {
+    background: #388e3c;
+  }
+</style>
+
+<script>
+  const audio = document.getElementById("miAudio");
+  const volumenSlider = document.getElementById("volumenSlider");
+  const volumenValor = document.getElementById("volumenValor");
+
+  volumenSlider.addEventListener("input", () => {
+    audio.volume = volumenSlider.value;
+    volumenValor.textContent = Math.round(volumenSlider.value * 100) + "%";
+  });
+
+  function muteAudio() {
+    audio.volume = 0;
+    volumenSlider.value = 0;
+    volumenValor.textContent = "0%";
+  }
+
+  function maxAudio() {
+    audio.volume = 1;
+    volumenSlider.value = 1;
+    volumenValor.textContent = "100%";
+  }
+</script>
+
+
   <!-- WhatsApp 
   <div class="whatsapp-container">
     <a href="https://wa.me/5491136283952" target="_blank" rel="noopener">
@@ -334,12 +426,12 @@
  <section class="historias">
     <h2>El momento del cambio es ahora</h2>
     <div class="historia">
-      <iframe autoplay muted  src="Assets/img/Jujuy.mp4" title="La fatalidad del núcleo de la Tierra: ¿qué pasaría si se detuviera?" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <iframe  src="Assets/img/Jujuy.mp4" title="La fatalidad del núcleo de la Tierra: ¿qué pasaría si se detuviera?" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
      <h2>Jornada de Accion por el clima en San salvador de Jujuy - 29/08 </h2>
       <p>Durante  la reunion se trataron temas fundamentales como la preocupante contaminacion por Nano plasticos, el aumento de actividad volcanica, la importancia de los generadores de agua atmofericos y la creciente incidencia de desastres climaticos. Durante el evento se distribuyeron y tarjetas informativas a todos los presentes. </p>
     
     </div>
-  </section>--> 
+  </section>
 
   <!-- ===== Texto + Galería ===== -->
   <div class="container">
