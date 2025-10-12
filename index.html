@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Inicio • Sociedad Creativa Argentina</title>
   <link rel="stylesheet" href="Css2.css" />
-<script src="js.js"></script>
+    <link rel="icon" href="Assets/Img/Logo.jpg" type="image/png">
+        <link rel="icon" href="Assets/img/logo whatsapp verde.jpg" type="image/png">
+
   <style>
     /* ===== Reset ===== */
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -103,14 +105,19 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+  flex-direction: row; /* <-- en fila */
   }
   .navbar .logo img {
     height: 50px;
+    flex-direction: row; /* <-- en fila */
+      
   }
+
   .Titulo {
     font-size: 1rem;
     margin: 0;
     white-space: normal;
+    
   }
   .navbar ul {
     flex-direction: column;
@@ -230,8 +237,8 @@
       </div>
     
       <h1 class="Titulo">Sociedad creativa Argentina</h1>
-      <h3 class="subtitulo">Asociacion civil</h3>
-    
+      <!--<h3 class="subtitulo">Asociacion civil</h3>-->
+
       <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="Nosotros.html">Nosotros</a></li>
@@ -422,16 +429,52 @@
     </div>
   </section>
 
-  <!-- ===== Video ===== -->
- <section class="historias">
-    <h2>El momento del cambio es ahora</h2>
-    <div class="historia">
-      <iframe  src="Assets/img/Jujuy.mp4" title="La fatalidad del núcleo de la Tierra: ¿qué pasaría si se detuviera?" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-     <h2>Jornada de Accion por el clima en San salvador de Jujuy - 29/08 </h2>
-      <p>Durante  la reunion se trataron temas fundamentales como la preocupante contaminacion por Nano plasticos, el aumento de actividad volcanica, la importancia de los generadores de agua atmofericos y la creciente incidencia de desastres climaticos. Durante el evento se distribuyeron y tarjetas informativas a todos los presentes. </p>
-    
-    </div>
-  </section>
+ <!-- ===== Video ===== -->
+<section class="historias">
+  <h2>El momento del cambio es ahora</h2>
+  <div class="historia">
+    <video controls title="Jornada de Acción por el Clima - San Salvador de Jujuy">
+      <source src="Assets/img/Jujuy.mp4" type="video/mp4">
+      Tu navegador no soporta la reproducción de videos.
+    </video>
+    <h2>Jornada de Acción por el Clima en San Salvador de Jujuy - 29/08</h2>
+    <p>Durante la reunión se trataron temas fundamentales como la preocupante contaminación por nanoplásticos, el aumento de la actividad volcánica, la importancia de los generadores de agua atmosféricos y la creciente incidencia de desastres climáticos. Durante el evento se distribuyeron tarjetas informativas a todos los presentes.</p>
+  </div>
+</section>
+<style>/* ===== Ajuste para agrandar el contenedor del video ===== */
+.historia {
+  max-width: 1200px; /* antes estaba en 895px */
+  margin: 40px auto; /* más espacio alrededor y centrado */
+  background: #fff;
+  color: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+  text-align: left;
+}
+
+.historia video {
+  width: 100%;
+  height: 650px; /* agranda la altura del video */
+  border: 0;
+  display: block;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0; /* bordes redondeados arriba */
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .historia video {
+    height: 420px;
+  }
+}
+
+@media (max-width: 480px) {
+  .historia video {
+    height: 260px;
+  }
+}
+</style>
 
   <!-- ===== Texto + Galería ===== -->
   <div class="container">
